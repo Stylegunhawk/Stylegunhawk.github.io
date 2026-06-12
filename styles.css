@@ -1,0 +1,1301 @@
+/* ============================================================
+   UtilityVault — site styles
+   Token architecture mirrors the app: data-theme + data-mode on
+   <html> play the role of AppThemeId + ThemeMode; the CSS custom
+   properties below are LocalAppColors.
+   ============================================================ */
+
+/* ---------- 1. Theme tokens (hex values from the app's themes) ---------- */
+
+:root {
+    /* fallback = Elegant dark */
+    --bg: #1A1C1E;
+    --surface: #2D2F31;
+    --surface-2: #333537;
+    --elevated: #1C1B1F;
+    --border: #444746;
+    --text: #E2E2E6;
+    --text-2: #B0BEC5;
+    --muted: #9E9E9E;
+    --dim: #5A5A66;
+    --primary: #D0BCFF;
+    --on-primary: #381E72;
+    --primary-fill: #4A2D8A;
+    --secondary: #CCC48E;
+    --ac-scanner: #D0BCFF;
+    --ac-qr: #CCC48E;
+    --ac-share: #EFB8C8;
+    --ac-files: #B3EB4F;
+    --ac-transcribe: #D0BCFF;
+    --ac-pdf: #F2A6A0;
+    --ac-insight: #80DEEA;
+    --ac-image: #82B1FF;
+}
+
+[data-theme="elegant"][data-mode="dark"] {
+    --bg: #1A1C1E;
+    --surface: #2D2F31;
+    --surface-2: #333537;
+    --elevated: #1C1B1F;
+    --border: #444746;
+    --text: #E2E2E6;
+    --text-2: #B0BEC5;
+    --muted: #9E9E9E;
+    --dim: #5A5A66;
+    --primary: #D0BCFF;
+    --on-primary: #381E72;
+    --primary-fill: #4A2D8A;
+    --secondary: #CCC48E;
+    --ac-scanner: #D0BCFF;
+    --ac-qr: #CCC48E;
+    --ac-share: #EFB8C8;
+    --ac-files: #B3EB4F;
+    --ac-transcribe: #D0BCFF;
+    --ac-pdf: #F2A6A0;
+    --ac-insight: #80DEEA;
+    --ac-image: #82B1FF;
+}
+
+[data-theme="elegant"][data-mode="light"] {
+    --bg: #F6F4FA;
+    --surface: #FFFFFF;
+    --surface-2: #EDE9F4;
+    --elevated: #FFFFFF;
+    --border: #D9D4E2;
+    --text: #1B1B1F;
+    --text-2: #45454D;
+    --muted: #74747E;
+    --dim: #AEAEB8;
+    --primary: #6750A4;
+    --on-primary: #FFFFFF;
+    --primary-fill: #EADDFF;
+    --secondary: #8A7D3B;
+    --ac-scanner: #6750A4;
+    --ac-qr: #8A7D3B;
+    --ac-share: #B04A6A;
+    --ac-files: #5A8A1E;
+    --ac-transcribe: #6750A4;
+    --ac-pdf: #C2402F;
+    --ac-insight: #00838F;
+    --ac-image: #2962FF;
+}
+
+[data-theme="claude"][data-mode="dark"] {
+    --bg: #1F1B17;
+    --surface: #2A251F;
+    --surface-2: #342E27;
+    --elevated: #17130F;
+    --border: #4A4138;
+    --text: #F0EEE9;
+    --text-2: #CFC7BB;
+    --muted: #9A9082;
+    --dim: #6A6155;
+    --primary: #D9905F;
+    --on-primary: #3A2415;
+    --primary-fill: #5A3A24;
+    --secondary: #CDA968;
+    --ac-scanner: #D9905F;
+    --ac-qr: #CDA968;
+    --ac-share: #D98E7D;
+    --ac-files: #A9C07A;
+    --ac-transcribe: #C79BD9;
+    --ac-pdf: #D96B6B;
+    --ac-insight: #86B8B0;
+    --ac-image: #7FA8C9;
+}
+
+[data-theme="claude"][data-mode="light"] {
+    --bg: #F0EEE9;
+    --surface: #FAF9F6;
+    --surface-2: #E7E3DA;
+    --elevated: #FFFFFF;
+    --border: #D9D3C7;
+    --text: #1F1B17;
+    --text-2: #4A443B;
+    --muted: #7A7264;
+    --dim: #AEA89C;
+    --primary: #CC785C;
+    --on-primary: #FFFFFF;
+    --primary-fill: #F3DDD2;
+    --secondary: #9A7B3B;
+    --ac-scanner: #CC785C;
+    --ac-qr: #9A7B3B;
+    --ac-share: #BF6A57;
+    --ac-files: #6E8B3D;
+    --ac-transcribe: #7B5EA8;
+    --ac-pdf: #B23A3A;
+    --ac-insight: #3F8077;
+    --ac-image: #3E6E94;
+}
+
+[data-theme="google"][data-mode="dark"] {
+    --bg: #1B1B1F;
+    --surface: #26262B;
+    --surface-2: #303035;
+    --elevated: #131316;
+    --border: #44454A;
+    --text: #E3E2E6;
+    --text-2: #C4C6CF;
+    --muted: #8E9099;
+    --dim: #5C5E66;
+    --primary: #8AB4F8;
+    --on-primary: #0B2A52;
+    --primary-fill: #1A3A66;
+    --secondary: #FDD663;
+    --ac-scanner: #8AB4F8;
+    --ac-qr: #FDD663;
+    --ac-share: #81C995;
+    --ac-files: #C58AF9;
+    --ac-transcribe: #8AB4F8;
+    --ac-pdf: #F48FB1;
+    --ac-insight: #4DD0E1;
+    --ac-image: #9FA8DA;
+}
+
+[data-theme="google"][data-mode="light"] {
+    --bg: #FFFFFF;
+    --surface: #F8F9FA;
+    --surface-2: #EEF0F2;
+    --elevated: #FFFFFF;
+    --border: #DADCE0;
+    --text: #202124;
+    --text-2: #3C4043;
+    --muted: #5F6368;
+    --dim: #9AA0A6;
+    --primary: #4285F4;
+    --on-primary: #FFFFFF;
+    --primary-fill: #D2E3FC;
+    --secondary: #FBBC05;
+    --ac-scanner: #4285F4;
+    --ac-qr: #FBBC05;
+    --ac-share: #34A853;
+    --ac-files: #A142F4;
+    --ac-transcribe: #4285F4;
+    --ac-pdf: #D81B60;
+    --ac-insight: #00ACC1;
+    --ac-image: #3F51B5;
+}
+
+[data-theme="ink"][data-mode="dark"] {
+    --bg: #0A0A0A;
+    --surface: #161616;
+    --surface-2: #1F1F1F;
+    --elevated: #050505;
+    --border: #333333;
+    --text: #F5F5F5;
+    --text-2: #BDBDBD;
+    --muted: #8A8A8A;
+    --dim: #555555;
+    --primary: #F5F5F5;
+    --on-primary: #0A0A0A;
+    --primary-fill: #2A2A2A;
+    --secondary: #BDBDBD;
+    --ac-scanner: #F5F5F5;
+    --ac-qr: #BDBDBD;
+    --ac-share: #D0D0D0;
+    --ac-files: #E0E0E0;
+    --ac-transcribe: #CCCCCC;
+    --ac-pdf: #EEEEEE;
+    --ac-insight: #8A8A8A;
+    --ac-image: #CFCFCF;
+}
+
+[data-theme="ink"][data-mode="light"] {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --surface-2: #F0F0F0;
+    --elevated: #FFFFFF;
+    --border: #D6D6D6;
+    --text: #0A0A0A;
+    --text-2: #333333;
+    --muted: #6E6E6E;
+    --dim: #ADADAD;
+    --primary: #0A0A0A;
+    --on-primary: #FFFFFF;
+    --primary-fill: #E6E6E6;
+    --secondary: #424242;
+    --ac-scanner: #0A0A0A;
+    --ac-qr: #424242;
+    --ac-share: #616161;
+    --ac-files: #2E2E2E;
+    --ac-transcribe: #333333;
+    --ac-pdf: #1A1A1A;
+    --ac-insight: #555555;
+    --ac-image: #3A3A3A;
+}
+
+[data-theme="sage"][data-mode="dark"] {
+    --bg: #1A1F1A;
+    --surface: #232B22;
+    --surface-2: #2B342A;
+    --elevated: #141A14;
+    --border: #3A4838;
+    --text: #E5EAE2;
+    --text-2: #B5C4B0;
+    --muted: #889883;
+    --dim: #5A6A56;
+    --primary: #A7BA9F;
+    --on-primary: #1A2A18;
+    --primary-fill: #3A4838;
+    --secondary: #B4C488;
+    --ac-scanner: #A7BA9F;
+    --ac-qr: #B4C488;
+    --ac-share: #8AB8A5;
+    --ac-files: #C0D488;
+    --ac-transcribe: #B0A8D4;
+    --ac-pdf: #CB8A8A;
+    --ac-insight: #7AA8C0;
+    --ac-image: #93A4C8;
+}
+
+[data-theme="sage"][data-mode="light"] {
+    --bg: #EEF3EA;
+    --surface: #F8FAF5;
+    --surface-2: #E0EAD8;
+    --elevated: #FFFFFF;
+    --border: #C4D2BB;
+    --text: #1F2A1D;
+    --text-2: #455040;
+    --muted: #6A7A65;
+    --dim: #A4B09E;
+    --primary: #576456;
+    --on-primary: #FFFFFF;
+    --primary-fill: #D4DDCC;
+    --secondary: #6A7A48;
+    --ac-scanner: #576456;
+    --ac-qr: #6A7A48;
+    --ac-share: #4A7A68;
+    --ac-files: #5A7A28;
+    --ac-transcribe: #6A5A9A;
+    --ac-pdf: #9A4A4A;
+    --ac-insight: #3A6A8A;
+    --ac-image: #4A5A8A;
+}
+
+[data-theme="sandstone"][data-mode="dark"] {
+    --bg: #1C1A16;
+    --surface: #26231E;
+    --surface-2: #302D28;
+    --elevated: #141210;
+    --border: #464238;
+    --text: #ECEAE0;
+    --text-2: #C4BAA8;
+    --muted: #8E8478;
+    --dim: #62584C;
+    --primary: #B0A888;
+    --on-primary: #2A2518;
+    --primary-fill: #4A4430;
+    --secondary: #8A9098;
+    --ac-scanner: #B0A888;
+    --ac-qr: #8A9098;
+    --ac-share: #A89880;
+    --ac-files: #A4B48A;
+    --ac-transcribe: #9898C8;
+    --ac-pdf: #CB7E7E;
+    --ac-insight: #7EB0B8;
+    --ac-image: #8FA8C0;
+}
+
+[data-theme="sandstone"][data-mode="light"] {
+    --bg: #F0ECE4;
+    --surface: #FAF7F2;
+    --surface-2: #E4DDD4;
+    --elevated: #FFFFFF;
+    --border: #CECBBF;
+    --text: #201D18;
+    --text-2: #4A4740;
+    --muted: #7A756E;
+    --dim: #A8A39C;
+    --primary: #6A6450;
+    --on-primary: #FFFFFF;
+    --primary-fill: #DED8C8;
+    --secondary: #5A6472;
+    --ac-scanner: #6A6450;
+    --ac-qr: #5A6472;
+    --ac-share: #7A6A58;
+    --ac-files: #5A7A3A;
+    --ac-transcribe: #5A5A9A;
+    --ac-pdf: #9A3A3A;
+    --ac-insight: #3A6A78;
+    --ac-image: #44597A;
+}
+
+[data-theme="graphite"][data-mode="dark"] {
+    --bg: #111214;
+    --surface: #1A1C20;
+    --surface-2: #222428;
+    --elevated: #0C0D0F;
+    --border: #2E3038;
+    --text: #E8E4D8;
+    --text-2: #B8B0A0;
+    --muted: #8A8278;
+    --dim: #4A4840;
+    --primary: #C9A84C;
+    --on-primary: #1A1408;
+    --primary-fill: #3A2E0C;
+    --secondary: #B8C4D8;
+    --ac-scanner: #C9A84C;
+    --ac-qr: #B8C4D8;
+    --ac-share: #D4A88A;
+    --ac-files: #A0B88A;
+    --ac-transcribe: #A8A8D8;
+    --ac-pdf: #CF6679;
+    --ac-insight: #7EB4C0;
+    --ac-image: #8AA0D0;
+}
+
+[data-theme="graphite"][data-mode="light"] {
+    --bg: #F4F0E8;
+    --surface: #FDFAF4;
+    --surface-2: #EAE4D4;
+    --elevated: #FFFFFF;
+    --border: #D8D0BC;
+    --text: #1A1810;
+    --text-2: #48443A;
+    --muted: #78746A;
+    --dim: #A8A49C;
+    --primary: #8A6A1E;
+    --on-primary: #FFFFFF;
+    --primary-fill: #F4E4A8;
+    --secondary: #6A7080;
+    --ac-scanner: #8A6A1E;
+    --ac-qr: #6A7080;
+    --ac-share: #8A6050;
+    --ac-files: #4A6A2A;
+    --ac-transcribe: #5A5A8A;
+    --ac-pdf: #9A3A3A;
+    --ac-insight: #3A6A82;
+    --ac-image: #3A4A8A;
+}
+
+/* ---------- 2. Base ---------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 17px;
+    transition: background-color .45s ease, color .45s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--on-primary);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.mono {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+/* ---------- 3. Nav ---------- */
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: background-color .45s ease, border-color .45s ease;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    flex: none;
+    background: var(--primary);
+    color: var(--on-primary);
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    font-weight: 800;
+    transition: background-color .45s ease;
+}
+
+.nav-spacer {
+    flex: 1;
+}
+
+/* Theme switcher — the site wearing the app's own themes */
+.theme-rail {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.theme-rail::-webkit-scrollbar {
+    display: none;
+}
+
+.theme-rail-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .1em;
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.theme-chip {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    flex: none;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    padding: 0;
+    background: var(--chip-bg);
+    position: relative;
+    transition: transform .15s ease, border-color .2s ease;
+}
+
+.theme-chip::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--chip-accent);
+}
+
+.theme-chip:hover {
+    transform: scale(1.18);
+}
+
+.theme-chip[aria-pressed="true"] {
+    border-color: var(--primary);
+    transform: scale(1.18);
+}
+
+.mode-toggle {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    transition: background-color .45s ease, color .45s ease, border-color .45s ease;
+    white-space: nowrap;
+}
+
+.mode-toggle:hover {
+    border-color: var(--primary);
+}
+
+/* ---------- 4. Hero ---------- */
+
+.hero {
+    padding: 96px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.hero h1 .accent {
+    color: var(--primary);
+    transition: color .45s ease;
+}
+
+.hero-sub {
+    font-size: 19px;
+    color: var(--text-2);
+    max-width: 46ch;
+    margin-bottom: 36px;
+}
+
+.cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary);
+    color: var(--on-primary);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: transform .15s ease, background-color .45s ease, color .45s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: transparent;
+    padding: 13px 24px;
+    border-radius: 14px;
+    font-size: 16px;
+    transition: border-color .2s ease;
+}
+
+.btn-ghost:hover {
+    border-color: var(--primary);
+    text-decoration: none;
+}
+
+.hero-note {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+/* Floating vault cards — the app shown as moments, not screenshots */
+.vault-stack {
+    position: relative;
+    min-height: 380px;
+}
+
+.vault-card {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .18);
+    transition: background-color .45s ease, border-color .45s ease, transform .3s ease;
+    animation: float 7s ease-in-out infinite;
+    width: max-content;
+    max-width: 300px;
+}
+
+.vault-card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.vault-card .vc-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    background: color-mix(in srgb, var(--vc) 18%, transparent);
+    color: var(--vc);
+}
+
+.vault-card .vc-title {
+    font-weight: 600;
+    font-size: 14.5px;
+}
+
+.vault-card .vc-meta {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.vc-1 {
+    top: 6%;
+    right: 12%;
+    --vc: var(--ac-pdf);
+    animation-delay: 0s;
+}
+
+.vc-2 {
+    top: 32%;
+    right: 0%;
+    --vc: var(--ac-scanner);
+    animation-delay: -2.2s;
+}
+
+.vc-3 {
+    top: 58%;
+    right: 18%;
+    --vc: var(--ac-files);
+    animation-delay: -4.4s;
+}
+
+.vc-4 {
+    top: 82%;
+    right: 4%;
+    --vc: var(--ac-transcribe);
+    animation-delay: -5.6s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+/* ---------- 5. Sections shared ---------- */
+
+.section {
+    padding: 96px 0;
+}
+
+.section-head {
+    max-width: 620px;
+    margin-bottom: 64px;
+}
+
+.section-head h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-head p {
+    color: var(--text-2);
+    font-size: 18px;
+}
+
+/* ---------- 6. Features + constellation path ---------- */
+
+.constellation {
+    position: relative;
+}
+
+.pulse-svg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 100%;
+    pointer-events: none;
+}
+
+.pulse-track {
+    stroke: var(--border);
+    stroke-width: 2;
+    fill: none;
+    opacity: .55;
+    transition: stroke .45s ease;
+}
+
+.pulse-draw {
+    stroke: var(--primary);
+    stroke-width: 2.5;
+    fill: none;
+    transition: stroke .45s ease;
+}
+
+.feature-row {
+    display: grid;
+    grid-template-columns: 1fr 160px 1fr;
+    align-items: center;
+    margin-bottom: 8px;
+    min-height: 190px;
+}
+
+.feature-card {
+    grid-column: 1;
+}
+
+.feature-row:nth-child(even) .feature-card {
+    grid-column: 3;
+}
+
+.feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    transition: background-color .45s ease, border-color .45s ease,
+        opacity .6s ease, translate .6s ease;
+    opacity: 0;
+    translate: 0 24px;
+}
+
+.feature-card.lit {
+    opacity: 1;
+    translate: 0 0;
+    border-color: color-mix(in srgb, var(--fc) 45%, var(--border));
+}
+
+.fc-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.fc-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    background: color-mix(in srgb, var(--fc) 16%, transparent);
+    color: var(--fc);
+    transition: color .45s ease, background-color .45s ease;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: var(--text-2);
+    font-size: 15.5px;
+}
+
+.fc-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+/* the node on the path */
+.feature-node {
+    grid-column: 2;
+    justify-self: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--border);
+    transition: border-color .4s ease, box-shadow .4s ease, background-color .45s ease;
+    z-index: 2;
+}
+
+.feature-row .lit-node {
+    border-color: var(--fc);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--fc) 22%, transparent),
+        0 0 24px color-mix(in srgb, var(--fc) 45%, transparent);
+}
+
+/* ---------- 7. Privacy ledger ---------- */
+
+.ledger-shell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: background-color .45s ease, border-color .45s ease;
+}
+
+.ledger {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13.5px;
+}
+
+.ledger th {
+    text-align: left;
+    padding: 16px 22px;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+    transition: background-color .45s ease;
+}
+
+.ledger td {
+    padding: 15px 22px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-2);
+    vertical-align: top;
+}
+
+.ledger tr:last-child td {
+    border-bottom: none;
+}
+
+.ledger td:first-child {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.never {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--primary) 16%, transparent);
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: .06em;
+    transition: color .45s ease, background-color .45s ease;
+}
+
+.ledger-foot {
+    padding: 16px 22px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+/* ---------- 8. Themes strip (meta moment) ---------- */
+
+.themes-strip {
+    text-align: center;
+}
+
+.themes-strip .section-head {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swatch-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 14px;
+}
+
+.swatch:hover .swatch-dot {
+    transform: scale(1.12);
+}
+
+.swatch-dot {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--sw-bg) 50%, var(--sw-accent) 50%);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.swatch[aria-pressed="true"] .swatch-dot {
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--primary);
+}
+
+.swatch-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--text-2);
+}
+
+/* ---------- 9. Pro / closing CTA ---------- */
+
+.pro-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color .45s ease, border-color .45s ease;
+}
+
+.pro-card::before {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto;
+    height: 70%;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--primary) 14%, transparent), transparent 70%);
+    pointer-events: none;
+}
+
+.pro-card h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.pro-card p {
+    color: var(--text-2);
+    max-width: 52ch;
+    margin: 0 auto 32px;
+    position: relative;
+}
+
+.pro-perks {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.perk {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 16px;
+    color: var(--text-2);
+}
+
+/* ---------- 10. Footer ---------- */
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 56px;
+    transition: border-color .45s ease;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer .mono {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--text-2);
+    font-size: 14px;
+}
+
+/* ---------- 11. Privacy policy document page ---------- */
+
+.doc {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 24px 120px;
+}
+
+.doc-head {
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+}
+
+.doc-head h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 16px;
+}
+
+.doc-meta {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.doc h2 {
+    font-size: 24px;
+    margin: 48px 0 16px;
+    scroll-margin-top: 90px;
+}
+
+.doc h3 {
+    font-size: 18px;
+    margin: 28px 0 10px;
+}
+
+.doc p,
+.doc li {
+    color: var(--text-2);
+    margin-bottom: 14px;
+}
+
+.doc ul {
+    padding-left: 22px;
+    margin-bottom: 18px;
+}
+
+.doc strong {
+    color: var(--text);
+}
+
+.doc-callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    transition: background-color .45s ease, border-color .45s ease;
+}
+
+.doc-callout p {
+    margin-bottom: 0;
+}
+
+.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    transition: background-color .45s ease, border-color .45s ease;
+}
+
+.toc-title {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.toc ol {
+    padding-left: 20px;
+}
+
+.toc li {
+    margin-bottom: 6px;
+}
+
+.toc a {
+    color: var(--text-2);
+}
+
+.toc a:hover {
+    color: var(--primary);
+}
+
+.perm-table {
+    margin: 24px 0;
+}
+
+/* ---------- 12. Reveal helper ---------- */
+
+.reveal {
+    opacity: 0;
+    translate: 0 26px;
+    transition: opacity .7s ease, translate .7s ease;
+}
+
+.reveal.in {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* ---------- 13. Responsive ---------- */
+
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .vault-stack {
+        min-height: 320px;
+    }
+
+    .vc-1 {
+        right: auto;
+        left: 0;
+    }
+
+    .vc-3 {
+        right: auto;
+        left: 8%;
+    }
+
+    .pulse-svg {
+        left: 20px;
+        transform: none;
+        width: 60px;
+    }
+
+    .feature-row {
+        grid-template-columns: 60px 1fr;
+        min-height: unset;
+        margin-bottom: 28px;
+    }
+
+    .feature-node {
+        grid-column: 1;
+    }
+
+    .feature-card,
+    .feature-row:nth-child(even) .feature-card {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-inner {
+        flex-wrap: wrap;
+    }
+
+    .theme-rail {
+        order: 3;
+        width: 100%;
+        padding-top: 8px;
+    }
+
+    .hero {
+        padding: 64px 0 48px;
+    }
+
+    .section {
+        padding: 64px 0;
+    }
+
+    .ledger-shell {
+        overflow-x: auto;
+    }
+
+    .ledger {
+        min-width: 560px;
+    }
+
+    .pro-card {
+        padding: 40px 24px;
+    }
+}
+
+/* ---------- 14. Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .vault-card {
+        animation: none;
+    }
+
+    .reveal,
+    .feature-card {
+        transition: none;
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    .pulse-draw {
+        stroke-dashoffset: 0 !important;
+    }
+
+    * {
+        transition-duration: .01ms !important;
+    }
+}

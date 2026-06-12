@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="elegant" data-mode="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UtilityVault — the toolbox that never phones home</title>
+    <meta name="description"
+        content="Scanner, PDF tools with on-device OCR, image tools, file manager, local share, QR and voice notes — every byte processed and stored on your phone. No cloud. No accounts. No tracking.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ============ NAV ============ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="logo" href="#"><span class="logo-mark">UV</span> UtilityVault</a>
+            <div class="nav-spacer"></div>
+            <div class="theme-rail" id="themeRail" role="group" aria-label="Preview the app's themes">
+                <span class="theme-rail-label">THEMES</span>
+                <!-- chips injected by site.js -->
+            </div>
+            <button class="mode-toggle" id="modeToggle" aria-label="Toggle light and dark mode">dark</button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+        <div class="wrap hero-grid">
+            <div>
+                <p class="eyebrow">Offline-first · Android</p>
+                <h1>The toolbox that <span class="accent">never phones home.</span></h1>
+                <p class="hero-sub">
+                    Scan documents, extract text from PDFs, compress images, lock your notes —
+                    every byte is processed and stored on your phone. No cloud. No account. No tracking.
+                </p>
+                <div class="cta-row">
+                    <!-- TODO: replace # with your Play Store listing URL after launch -->
+                    <a class="btn-primary" href="#" aria-disabled="true">Get it on Google Play — soon</a>
+                    <a class="btn-ghost" href="#features">See what's inside</a>
+                </div>
+                <p class="hero-note">// works in airplane mode — by design, not by accident</p>
+            </div>
+
+            <div class="vault-stack" aria-hidden="true">
+                <div class="vault-card vc-1">
+                    <div class="vc-icon">⬚</div>
+                    <div>
+                        <div class="vc-title">Text extracted from scan.pdf</div>
+                        <div class="vc-meta">OCR · on-device · 0 bytes uploaded</div>
+                    </div>
+                </div>
+                <div class="vault-card vc-2">
+                    <div class="vc-icon">▣</div>
+                    <div>
+                        <div class="vc-title">3 pages → Lease_2026.pdf</div>
+                        <div class="vc-meta">saved to Downloads/UtilityVault</div>
+                    </div>
+                </div>
+                <div class="vault-card vc-3">
+                    <div class="vc-icon">◫</div>
+                    <div>
+                        <div class="vc-title">photo.heic → 412 KB webp</div>
+                        <div class="vc-meta">compressed locally</div>
+                    </div>
+                </div>
+                <div class="vault-card vc-4">
+                    <div class="vc-icon">●</div>
+                    <div>
+                        <div class="vc-title">Voice note transcribed</div>
+                        <div class="vc-meta">mic audio never left the phone</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ FEATURES / CONSTELLATION ============ -->
+    <section class="section" id="features">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">What's inside</p>
+                <h2>One vault. Every everyday tool.</h2>
+                <p>Each tool below runs entirely on your device — the line connecting them is the only network this app
+                    needs.</p>
+            </div>
+
+            <div class="constellation" id="constellation">
+                <svg class="pulse-svg" viewBox="0 0 140 1400" preserveAspectRatio="none" aria-hidden="true">
+                    <path class="pulse-track" id="pulseTrack"
+                        d="M70,0 C70,80 20,120 20,200 C20,280 120,320 120,400 C120,480 20,520 20,600 C20,680 120,720 120,800 C120,880 20,920 20,1000 C20,1080 120,1120 120,1200 C120,1290 70,1330 70,1400" />
+                    <path class="pulse-draw" id="pulseDraw"
+                        d="M70,0 C70,80 20,120 20,200 C20,280 120,320 120,400 C120,480 20,520 20,600 C20,680 120,720 120,800 C120,880 20,920 20,1000 C20,1080 120,1120 120,1200 C120,1290 70,1330 70,1400" />
+                </svg>
+
+                <div class="feature-row" style="--fc: var(--ac-scanner)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">▣</div>
+                            <div>
+                                <h3>Document scanner</h3><span class="fc-tag">camera → PDF</span>
+                            </div>
+                        </div>
+                        <p>Point, capture, done — multi-page scans become clean PDFs saved straight to your Downloads.
+                            The camera feed is processed in memory and never transmitted.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-pdf)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">⬚</div>
+                            <div>
+                                <h3>PDF tools + offline OCR</h3><span class="fc-tag">merge · split · reorder · extract
+                                    text</span>
+                            </div>
+                        </div>
+                        <p>Merge, split, reorder, compress — and pull selectable text out of any PDF or photo with
+                            on-device OCR. Most OCR apps upload your documents to do this. This one can't: there's
+                            nothing to upload to.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-image)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">◫</div>
+                            <div>
+                                <h3>Image tools</h3><span class="fc-tag">compress · resize · convert</span>
+                            </div>
+                        </div>
+                        <p>Hit any upload size limit with one tap — smart compression binary-searches quality to land
+                            under your target. HEIC, WebP, PNG, JPEG, converted locally in seconds.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-share)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">⇄</div>
+                            <div>
+                                <h3>Local share</h3><span class="fc-tag">phone → any browser, same Wi-Fi</span>
+                            </div>
+                        </div>
+                        <p>Send a file to any laptop or phone on your network: the app spins up a tiny server on your
+                            device, the receiver scans a QR. The file travels across the room — not across the internet.
+                        </p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-transcribe)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">●</div>
+                            <div>
+                                <h3>Voice notes & tasks</h3><span class="fc-tag">speak → searchable text</span>
+                            </div>
+                        </div>
+                        <p>Dictate notes and voice tasks with reminders, transcribed as you speak and stored in a local
+                            database. Search everything later — your voice stays yours.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-qr)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">▦</div>
+                            <div>
+                                <h3>QR studio + file manager</h3><span class="fc-tag">generate · scan · organize</span>
+                            </div>
+                        </div>
+                        <p>Generate and scan QR codes, and manage every file the vault produces — rename, move, share,
+                            or extract text, all from one place.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-insight)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">✦</div>
+                            <div>
+                                <h3>App lock & Vault Pulse</h3><span class="fc-tag">PIN · biometric · activity
+                                    constellation</span>
+                            </div>
+                        </div>
+                        <p>A PIN and biometric gate guards the whole vault, with brute-force lockout. Vault Pulse turns
+                            your real activity into a living constellation — drawn from local data, like everything else
+                            here.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRIVACY LEDGER ============ -->
+    <section class="section" id="privacy">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">The privacy ledger</p>
+                <h2>Where your data lives. All of it.</h2>
+                <p>Most privacy policies are written to be skimmed. This table is the whole story — verifiable, because
+                    the app works with networking turned off.</p>
+            </div>
+
+            <div class="ledger-shell reveal">
+                <table class="ledger">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Where it's stored</th>
+                            <th>Leaves your device?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Scanned documents & PDFs</td>
+                            <td>Your phone's Downloads folder</td>
+                            <td><span class="never">NEVER</span></td>
+                        </tr>
+                        <tr>
+                            <td>Photos you compress or convert</td>
+                            <td>Your phone's Pictures folder</td>
+                            <td><span class="never">NEVER</span></td>
+                        </tr>
+                        <tr>
+                            <td>Notes, tasks & transcripts</td>
+                            <td>Local encrypted-device database</td>
+                            <td><span class="never">NEVER</span></td>
+                        </tr>
+                        <tr>
+                            <td>OCR text extraction</td>
+                            <td>Processed in memory, on-device model</td>
+                            <td><span class="never">NEVER</span></td>
+                        </tr>
+                        <tr>
+                            <td>Your PIN</td>
+                            <td>Hashed, in encrypted storage, excluded from backups</td>
+                            <td><span class="never">NEVER</span></td>
+                        </tr>
+                        <tr>
+                            <td>Usage analytics</td>
+                            <td>Not collected — there is nothing to store</td>
+                            <td><span class="never">N/A</span></td>
+                        </tr>
+                        <tr>
+                            <td>Local share transfers</td>
+                            <td>Device-to-device over your own Wi-Fi, only while you run a session</td>
+                            <td>Your network only</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="ledger-foot">$ required accounts: 0 &nbsp;·&nbsp; servers operated by us: 0 &nbsp;·&nbsp;
+                    full details in the <a href="privacy-policy.html">privacy policy</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ THEMES (meta moment) ============ -->
+    <section class="section themes-strip" id="themes">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Make it yours</p>
+                <h2>Seven themes. You're wearing one now.</h2>
+                <p>This entire page is painted with the app's real color system — every swatch below restyles the site
+                    exactly the way it restyles the app.</p>
+            </div>
+            <div class="swatch-row reveal" id="swatchRow">
+                <!-- swatches injected by site.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRO ============ -->
+    <section class="section" id="pro">
+        <div class="wrap">
+            <div class="pro-card reveal">
+                <p class="eyebrow">UtilityVault Pro</p>
+                <h2>Free forever. Pro is one purchase.</h2>
+                <p>Every core tool is free. A single one-time unlock — no subscription — removes ads and opens the
+                    advanced PDF suite for heavy work.</p>
+                <div class="pro-perks">
+                    <span class="perk">no ads, ever</span>
+                    <span class="perk">PDF text extraction (OCR)</span>
+                    <span class="perk">PDF compression</span>
+                    <span class="perk">batch & large-file operations</span>
+                    <span class="perk">one payment · lifetime</span>
+                </div>
+                <!-- TODO: replace # with your Play Store listing URL after launch -->
+                <a class="btn-primary" href="#">Coming to Google Play</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="wrap footer-grid">
+            <div>
+                <a class="logo" href="#"><span class="logo-mark">UV</span> UtilityVault</a>
+                <p class="mono" style="margin-top:10px">// built offline-first · © 2026</p>
+            </div>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy policy</a>
+                <!-- TODO: replace with your contact email -->
+                <a href="mailto:spunch0987@gmail.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="site.js"></script>
+</body>
+
+</html>

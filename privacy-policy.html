@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="elegant" data-mode="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — UtilityVault</title>
+    <meta name="description"
+        content="UtilityVault privacy policy: no accounts, no data collection, all processing on-device.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="logo" href="index.html"><span class="logo-mark">UV</span> UtilityVault</a>
+            <div class="nav-spacer"></div>
+            <button class="mode-toggle" id="modeToggle" aria-label="Toggle light and dark mode">dark</button>
+        </div>
+    </nav>
+
+    <main class="doc">
+        <header class="doc-head">
+            <p class="eyebrow">Legal</p>
+            <h1>Privacy Policy</h1>
+            <div class="doc-meta">
+                <span>Effective date: June 10, 2026</span>
+                <span>App: UtilityVault (Android)</span>
+            </div>
+        </header>
+
+        <div class="doc-callout">
+            <p><strong>The short version:</strong> UtilityVault has no user accounts, operates no servers, and does not
+                collect, transmit, sell, or share your personal data. Your documents, photos, notes, and recordings are
+                processed and stored only on your device. The app is fully functional offline.</p>
+        </div>
+
+        <nav class="toc" aria-label="Table of contents">
+            <p class="toc-title">Contents</p>
+            <ol>
+                <li><a href="#who-we-are">Who we are</a></li>
+                <li><a href="#data-we-collect">Data we collect</a></li>
+                <li><a href="#on-device">On-device processing and storage</a></li>
+                <li><a href="#permissions">Device permissions and why they're needed</a></li>
+                <li><a href="#local-share">The Local Share feature</a></li>
+                <li><a href="#backups">Device backups</a></li>
+                <li><a href="#ads">Advertising (future versions)</a></li>
+                <li><a href="#children">Children's privacy</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#changes">Changes to this policy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="who-we-are">1. Who we are</h2>
+        <p>Utility Vault is developed and published by <strong>Stylegunhawk</strong> ("we", "us"). This policy
+            describes how the UtilityVault Android application ("the app") handles information.</p>
+
+        <h2 id="data-we-collect">2. Data we collect</h2>
+        <p><strong>We collect none.</strong> Specifically, the app does not:</p>
+        <ul>
+            <li>Require or offer the creation of any user account.</li>
+            <li>Collect, transmit, or store any personal information on any server. We do not operate servers.</li>
+            <li>Use analytics, crash-reporting, telemetry, or tracking SDKs.</li>
+            <li>Read your contacts, location, call logs, or messages.</li>
+            <li>Sell or share any data with third parties — there is no data to sell or share.</li>
+        </ul>
+        <p>Because no data reaches us, we cannot access, recover, or delete your content for you: it exists only on your
+            device, under your control. Uninstalling the app, or clearing its storage in Android settings, removes the
+            app's local data.</p>
+
+        <h2 id="on-device">3. On-device processing and storage</h2>
+        <p>Every feature of the app runs locally on your device:</p>
+        <ul>
+            <li><strong>Document scanning & PDF tools</strong> — scans, merges, splits, and compression are performed
+                on-device; output files are saved to your device's Downloads folder.</li>
+            <li><strong>Text recognition (OCR)</strong> — uses an on-device machine-learning model bundled with the app.
+                Images and PDFs are never uploaded for recognition.</li>
+            <li><strong>Image tools</strong> — compression, resizing, and format conversion happen on-device; outputs
+                are saved to your Pictures folder.</li>
+            <li><strong>Notes, voice notes & tasks</strong> — transcripts, notes, and tasks are stored in a local
+                database on your device. Voice transcription uses your device's speech recognition service; depending on
+                your device manufacturer and settings, the operating system's speech service may process audio according
+                to your device's own settings, which are outside this app's control.</li>
+            <li><strong>App lock</strong> — your PIN is stored only as a cryptographic hash inside Android's encrypted
+                storage on your device, and is excluded from device backups. Biometric unlocking is handled entirely by
+                the Android system; the app never sees your fingerprint or face data.</li>
+        </ul>
+
+        <h2 id="permissions">4. Device permissions and why they're needed</h2>
+        <div class="ledger-shell perm-table">
+            <table class="ledger">
+                <thead>
+                    <tr>
+                        <th>Permission</th>
+                        <th>Used for</th>
+                        <th>Data leaves device?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Camera</td>
+                        <td>Scanning documents and reading QR codes</td>
+                        <td><span class="never">NO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Microphone</td>
+                        <td>Recording voice notes and voice tasks</td>
+                        <td><span class="never">NO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Biometrics</td>
+                        <td>Unlocking the app (handled by Android)</td>
+                        <td><span class="never">NO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Photos / media / files</td>
+                        <td>Opening the files you choose to edit; saving your outputs</td>
+                        <td><span class="never">NO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Notifications</td>
+                        <td>Task reminders and progress of operations you start</td>
+                        <td><span class="never">NO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Local network</td>
+                        <td>The Local Share feature only (see section 5)</td>
+                        <td>Your own network only</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Permissions are requested only when you first use the feature that needs them, and every feature that does
+            not depend on a permission keeps working if you decline it.</p>
+
+        <h2 id="local-share">5. The Local Share feature</h2>
+        <p>Local Share lets you transfer a file from your phone to another device (for example, a laptop) over your own
+            Wi-Fi network. When you start a share session, the app runs a temporary server <em>on your phone</em>; the
+            receiving device downloads the file directly from your phone across your local network. No file passes
+            through the internet or any third-party server. The session ends, and the server stops, when you close it.
+            Anyone on the same local network who has the session link or QR code during an active session can download
+            the shared file — only share on networks you trust.</p>
+
+        <h2 id="backups">6. Device backups</h2>
+        <p>Android can back up app data to your own Google account as part of the operating system's device backup.
+            UtilityVault excludes its sensitive data — your PIN hash and the local notes/tasks database — from these
+            backups. Files saved to your shared Downloads and Pictures folders are ordinary files on your device and
+            follow your own device backup settings.</p>
+
+        <h2 id="ads">7. Advertising (future versions)</h2>
+        <div class="doc-callout">
+            <p><strong>Status: the current version of UtilityVault contains no advertising.</strong> The section below
+                applies only if and when a future version introduces ads, and this policy will be updated when that
+                happens.</p>
+        </div>
+        <p>A future free version of the app may display advertising provided by Google AdMob. If it does:</p>
+        <ul>
+            <li>AdMob, as a third party, may collect device identifiers (such as the Android advertising ID) and
+                ad-interaction data to serve and measure ads, as described in <a
+                    href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.</li>
+            <li>Where required by law (for example, in the EEA and UK), you will be shown a consent dialog before any
+                ad-related data is processed, and an "Ad privacy options" setting in the app will let you review your
+                choice at any time.</li>
+            <li>Ads will never appear on security-sensitive screens such as the app lock or PIN setup.</li>
+            <li>A one-time Pro purchase will remove advertising entirely, including the advertising SDK's data
+                collection.</li>
+        </ul>
+        <p>Purchases, if offered, are processed by Google Play; we never see your payment details.</p>
+
+        <h2 id="children">8. Children's privacy</h2>
+        <p>The app is a general-audience utility and is not directed at children. Since the app collects no personal
+            data from anyone, it collects no personal data from children.</p>
+
+        <h2 id="security">9. Security</h2>
+        <p>Sensitive values such as the PIN hash are stored using Android's encrypted storage APIs. The app lock applies
+            escalating delays after repeated failed PIN attempts. Because your content never leaves your device, the
+            security of your data is primarily that of your device itself — we recommend using a device screen lock and
+            keeping Android up to date.</p>
+
+        <h2 id="changes">10. Changes to this policy</h2>
+        <p>If the app's behavior changes in a way that affects privacy — such as the introduction of advertising
+            described in section 7 — this policy will be updated before that version is released, with a new effective
+            date at the top of this page.</p>
+
+        <h2 id="contact">11. Contact</h2>
+        <p>Questions about this policy or the app's data practices: <a
+                href="mailto:spunch0987@gmail.com">spunch0987@gmail.com</a>
+        </p>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-grid">
+            <p class="mono">// UtilityVault · © 2026</p>
+            <div class="footer-links"><a href="index.html">Home</a></div>
+        </div>
+    </footer>
+
+    <script src="site.js"></script>
+</body>
+
+</html>
