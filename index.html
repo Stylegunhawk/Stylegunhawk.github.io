@@ -7,6 +7,9 @@
     <title>UtilityVault — the toolbox that never phones home</title>
     <meta name="description"
         content="Scanner, PDF tools with on-device OCR, image tools, file manager, local share, QR and voice notes — every byte processed and stored on your phone. No cloud. No accounts. No tracking.">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="icon" href="./favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="./favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +33,8 @@
             <button class="mode-toggle" id="modeToggle" aria-label="Toggle light and dark mode">dark</button>
         </div>
     </nav>
+
+    <main>
 
     <!-- ============ HERO ============ -->
     <header class="hero">
@@ -93,11 +98,11 @@
             </div>
 
             <div class="constellation" id="constellation">
-                <svg class="pulse-svg" viewBox="0 0 140 1400" preserveAspectRatio="none" aria-hidden="true">
+                <svg class="pulse-svg" viewBox="0 0 140 1600" preserveAspectRatio="none" aria-hidden="true">
                     <path class="pulse-track" id="pulseTrack"
-                        d="M70,0 C70,80 20,120 20,200 C20,280 120,320 120,400 C120,480 20,520 20,600 C20,680 120,720 120,800 C120,880 20,920 20,1000 C20,1080 120,1120 120,1200 C120,1290 70,1330 70,1400" />
+                        d="M70,0 C70,80 20,120 20,200 C20,280 120,320 120,400 C120,480 20,520 20,600 C20,680 120,720 120,800 C120,880 20,920 20,1000 C20,1080 120,1120 120,1200 C120,1280 20,1320 20,1400 C20,1490 70,1530 70,1600" />
                     <path class="pulse-draw" id="pulseDraw"
-                        d="M70,0 C70,80 20,120 20,200 C20,280 120,320 120,400 C120,480 20,520 20,600 C20,680 120,720 120,800 C120,880 20,920 20,1000 C20,1080 120,1120 120,1200 C120,1290 70,1330 70,1400" />
+                        d="M70,0 C70,80 20,120 20,200 C20,280 120,320 120,400 C120,480 20,520 20,600 C20,680 120,720 120,800 C120,880 20,920 20,1000 C20,1080 120,1120 120,1200 C120,1280 20,1320 20,1400 C20,1490 70,1530 70,1600" />
                 </svg>
 
                 <div class="feature-row" style="--fc: var(--ac-scanner)">
@@ -140,6 +145,21 @@
                         </div>
                         <p>Hit any upload size limit with one tap — smart compression binary-searches quality to land
                             under your target. HEIC, WebP, PNG, JPEG, converted locally in seconds.</p>
+                    </div>
+                    <div class="feature-node"></div>
+                </div>
+
+                <div class="feature-row" style="--fc: var(--ac-files)">
+                    <div class="feature-card">
+                        <div class="fc-head">
+                            <div class="fc-icon">▤</div>
+                            <div>
+                                <h3>Bill Vault</h3><span class="fc-tag">receipt → merchant · date · amount</span>
+                            </div>
+                        </div>
+                        <p>Snap or pick a receipt and it's read on-device — merchant, date, total and GSTIN pulled out
+                            automatically, then filed in a private vault you can search and total up. Most expense apps
+                            ship your receipts to a server to read them. This one never sends a single byte.</p>
                     </div>
                     <div class="feature-node"></div>
                 </div>
@@ -242,6 +262,11 @@
                             <td><span class="never">NEVER</span></td>
                         </tr>
                         <tr>
+                            <td>Receipts & extracted bill data</td>
+                            <td>Private app storage — not your photo gallery</td>
+                            <td><span class="never">NEVER</span></td>
+                        </tr>
+                        <tr>
                             <td>OCR text extraction</td>
                             <td>Processed in memory, on-device model</td>
                             <td><span class="never">NEVER</span></td>
@@ -290,13 +315,17 @@
             <div class="pro-card reveal">
                 <p class="eyebrow">UtilityVault Pro</p>
                 <h2>Free forever. Pro is one purchase.</h2>
-                <p>Every core tool is free. A single one-time unlock — no subscription — removes ads and opens the
-                    advanced PDF suite for heavy work.</p>
+                <p>Every core tool is free. A single one-time unlock — no subscription — removes ads, opens the
+                    advanced PDF suite, and unlocks Bill Vault's expense tools.</p>
                 <div class="pro-perks">
                     <span class="perk">no ads, ever</span>
                     <span class="perk">PDF text extraction (OCR)</span>
                     <span class="perk">PDF compression</span>
                     <span class="perk">batch & large-file operations</span>
+                    <span class="perk">receipt search</span>
+                    <span class="perk">bill reminders</span>
+                    <span class="perk">spend reports</span>
+                    <span class="perk">CSV export</span>
                     <span class="perk">one payment · lifetime</span>
                 </div>
                 <!-- TODO: replace # with your Play Store listing URL after launch -->
@@ -304,6 +333,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ============ FOOTER ============ -->
     <footer class="footer">

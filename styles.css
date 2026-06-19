@@ -690,7 +690,8 @@ a:hover {
 .vault-card .vc-meta {
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
-    color: var(--muted);
+    /* --text-2 (not --muted) so 11px meets WCAG AA 4.5:1 across every theme */
+    color: var(--text-2);
 }
 
 .vc-1 {
