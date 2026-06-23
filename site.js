@@ -91,36 +91,90 @@
 
     syncPressedStates();
 
-    /* ---------- Scroll-drawn pulse path ---------- */
-    var draw = document.getElementById("pulseDraw");
+    /* ---------- Constellation path (dynamic) + scroll draw ---------- */
     var constellation = document.getElementById("constellation");
+    var track = document.getElementById("pulseTrack");
+    var draw = document.getElementById("pulseDraw");
+    var pulseSvg = constellation && constellation.querySelector(".pulse-svg");
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var pathLen = 0;
+    var ticking = false;
 
-    if (draw && constellation && !reduceMotion) {
-        var len = draw.getTotalLength();
-        draw.style.strokeDasharray = String(len);
-        draw.style.strokeDashoffset = String(len);
+    function buildPulsePath() {
+        if (!pulseSvg || !track || !draw || !constellation) return;
+        var rows = Array.from(constellation.querySelectorAll(".feature-row"));
+        if (!rows.length) return;
 
-        var ticking = false;
-        function updatePath() {
-            ticking = false;
-            var rect = constellation.getBoundingClientRect();
-            var vh = window.innerHeight;
-            /* progress: 0 when section top hits 80% of viewport, 1 when bottom passes 35% */
-            var total = rect.height + vh * 0.45;
-            var passed = vh * 0.8 - rect.top;
-            var progress = Math.min(1, Math.max(0, passed / total));
-            draw.style.strokeDashoffset = String(len * (1 - progress));
+        /* Use getBoundingClientRect so post-font-load layout is always current */
+        var cb = constellation.getBoundingClientRect();
+        var totalH = cb.height;
+        if (totalH <= 0) return;
+
+        var CX = 70, LX = 20, RX = 120;
+
+        /* Y center of each row relative to constellation top.
+           Difference of rects cancels scroll offset. */
+        var ys = rows.map(function (r) {
+            var rb = r.getBoundingClientRect();
+            return (rb.top - cb.top) + rb.height / 2;
+        });
+
+        /* viewBox height = actual px height → 1:1 coordinate mapping */
+        pulseSvg.setAttribute("viewBox", "0 0 140 " + Math.ceil(totalH));
+
+        /* Path starts ON the first dot and ends ON the last — no dangling tails.
+           It passes through (CX, y) at every dot, bowing left/right between them.
+           Even-indexed cards are right-side (nth-child even, since SVG is child 1),
+           so the approaching bow goes left (LX). Odd → right (RX). */
+        var d = "M" + CX + "," + ys[0].toFixed(1);
+        for (var i = 1; i < ys.length; i++) {
+            var prev = ys[i - 1], y = ys[i], span = y - prev;
+            var bx = (i % 2 === 0) ? LX : RX;
+            d += " C" + bx + "," + (prev + span * 0.35).toFixed(1)
+               + " " + bx + "," + (y - span * 0.35).toFixed(1)
+               + " " + CX + "," + y.toFixed(1);
         }
-        function onScroll() {
-            if (!ticking) { ticking = true; requestAnimationFrame(updatePath); }
-        }
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
-        updatePath();
-    } else if (draw) {
-        draw.style.strokeDashoffset = "0";
+
+        track.setAttribute("d", d);
+        draw.setAttribute("d", d);
     }
+
+    function updateScroll() {
+        ticking = false;
+        if (!draw || !constellation || pathLen <= 0) return;
+        var rect = constellation.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var total = rect.height + vh * 0.45;
+        var passed = vh * 0.8 - rect.top;
+        var progress = Math.min(1, Math.max(0, passed / total));
+        draw.style.strokeDashoffset = String(pathLen * (1 - progress));
+    }
+
+    function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateScroll); }
+    }
+
+    function initScrollDraw() {
+        buildPulsePath();
+        if (!draw) return;
+        pathLen = draw.getTotalLength ? draw.getTotalLength() : 0;
+        if (!reduceMotion && pathLen > 0) {
+            draw.style.strokeDasharray = String(pathLen);
+            updateScroll();
+        } else {
+            draw.style.strokeDashoffset = "0";
+        }
+    }
+
+    initScrollDraw();
+
+    /* Re-run after web fonts load — Bricolage Grotesque changes row heights */
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(initScrollDraw);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", function () { initScrollDraw(); onScroll(); });
 
     /* ---------- Feature cards + nodes light up as the path reaches them ---------- */
     var rows = document.querySelectorAll(".feature-row");

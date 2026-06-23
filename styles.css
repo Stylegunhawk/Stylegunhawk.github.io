@@ -861,6 +861,10 @@ a:hover {
 /* the node on the path */
 .feature-node {
     grid-column: 2;
+    /* pin to row 1 — without this, right-side cards (col 3, placed before the
+       node in the DOM) push the node into a phantom 2nd row via sparse
+       auto-placement, dropping the dot below its card centre */
+    grid-row: 1;
     justify-self: center;
     width: 18px;
     height: 18px;
@@ -1221,7 +1225,8 @@ a:hover {
     }
 
     .pulse-svg {
-        left: 20px;
+        /* center of the 60px spine sits on the node (centered in the 60px column) */
+        left: 0;
         transform: none;
         width: 60px;
     }
